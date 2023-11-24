@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Grid } from '@mui/material';
 
 const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
 
