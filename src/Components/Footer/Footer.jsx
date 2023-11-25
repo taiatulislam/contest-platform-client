@@ -7,7 +7,7 @@ const condition = ['Terms & Condition', 'License', 'Contact'];
 const Footer = () => {
     return (
         <div style={{ backgroundColor: 'ivory' }}>
-            <Grid container direction="row" justifyContent="space-evenly" alignItems="center" style={{ paddingTop: '40px' }}>
+            <Grid container justifyContent="space-evenly" alignItems="center" style={{ paddingTop: '40px' }} sx={{ flexDirection: { xs: 'column', sm: 'row' } }}>
                 <Grid item>
                     <Grid container direction="column" justifyContent="center" alignItems="center">
                         <Grid item>
@@ -23,9 +23,8 @@ const Footer = () => {
                                 variant="h6"
                                 noWrap
                                 component="a"
-                                href="#app-bar-with-responsive-menu"
+                                href="/"
                                 sx={{
-                                    // display: { xs: 'none', md: 'flex' },
                                     fontFamily: 'monospace',
                                     fontWeight: 500,
                                     color: 'black',
@@ -38,22 +37,22 @@ const Footer = () => {
                     </Grid>
                 </Grid>
 
+                {/* Menu */}
                 <Grid item>
-                    <Typography
-                        sx={{
-                            fontFamily: 'monospace',
-                            fontSize: '20px',
-                            fontWeight: 600,
-                            color: 'black',
-                            textDecoration: 'none',
-                            textAlign: 'center',
-                            padding: '10px 0px'
-                        }}
-                    >
-                        Menu
-                    </Typography>
-
-                    <Grid container direction="column" justifyContent="center" alignItems="center">
+                    <Grid container direction="column" justifyContent="center" alignItems="center" >
+                        <Typography
+                            sx={{
+                                fontFamily: 'monospace',
+                                fontSize: '20px',
+                                fontWeight: 600,
+                                color: 'black',
+                                textDecoration: 'none',
+                                textAlign: 'center',
+                                padding: '10px 0px'
+                            }}
+                        >
+                            Menu
+                        </Typography>
                         {pages.map((page) => (
                             <Grid item key={page} >
                                 <Typography textAlign="center">{page}</Typography>
@@ -62,55 +61,56 @@ const Footer = () => {
                     </Grid>
                 </Grid>
 
+                {/* Links */}
                 <Grid item>
-                    <Typography
-                        sx={{
-                            fontFamily: 'monospace',
-                            fontSize: '20px',
-                            fontWeight: 600,
-                            color: 'black',
-                            textDecoration: 'none',
-                            textAlign: 'center',
-                            padding: '10px 0px'
-                        }}
-                    >
-                        Legal
-                    </Typography>
-                    <Grid container direction="column" justifyContent="center" alignItems="center">
+                    <Grid container direction="column" justifyContent="center" alignItems="center" >
+                        <Typography
+                            sx={{
+                                fontFamily: 'monospace',
+                                fontSize: '20px',
+                                fontWeight: 600,
+                                color: 'black',
+                                textDecoration: 'none',
+                                textAlign: 'center',
+                                padding: '10px 0px'
+                            }}
+                        >
+                            Legal
+                        </Typography>
                         {links.map((page) => (
                             <Grid item key={page} >
                                 <Typography textAlign="center">{page}</Typography>
                             </Grid>
                         ))}
                     </Grid>
-
                 </Grid>
 
+                {/* Contact */}
                 <Grid item>
-                    <Typography
-                        sx={{
-                            fontFamily: 'monospace',
-                            fontSize: '20px',
-                            fontWeight: 600,
-                            color: 'black',
-                            textDecoration: 'none',
-                            textAlign: 'center',
-                            padding: '10px 0px'
-                        }}
-                    >
-                        Social
-                    </Typography>
                     <Grid container direction="column" justifyContent="center" alignItems="center">
+                        <Typography
+                            sx={{
+                                fontFamily: 'monospace',
+                                fontSize: '20px',
+                                fontWeight: 600,
+                                color: 'black',
+                                textDecoration: 'none',
+                                textAlign: 'center',
+                                padding: '10px 0px'
+                            }}
+                        >
+                            Social
+                        </Typography>
                         {condition.map((page) => (
                             <Grid item key={page} >
                                 <Typography textAlign="center">{page}</Typography>
                             </Grid>
                         ))}
                     </Grid>
-
                 </Grid>
             </Grid>
 
+            {/* copyright */}
             <Typography
                 sx={{
                     fontFamily: 'monospace',
@@ -126,7 +126,7 @@ const Footer = () => {
                 All right reserved.
             </Typography>
 
-        </div>
+        </div >
     );
 };
 

@@ -37,10 +37,10 @@ const Navbar = () => {
     };
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: 'white' }}>
-            <Container maxWidth="xl">
+        <AppBar position='static' sx={{ backgroundColor: 'white' }}>
+            <Container maxWidth="lg">
                 <Toolbar disableGutters>
-                    <Box style={{ padding: '10px', width: '100px' }} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box style={{ padding: '10px 0px' }} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Box>
                             <Grid container direction="column" justifyContent="center" alignItems="center">
                                 <Grid item>
@@ -48,18 +48,17 @@ const Navbar = () => {
                                         srcSet='https://i.ibb.co/qgvbwwc/logo.png'
                                         src='https://i.ibb.co/qgvbwwc/logo.png'
                                         alt='logo'
-                                        style={{ height: '50px', width: '100px' }}
+                                        style={{ height: '25px', width: '50px' }}
                                     />
                                 </Grid>
                                 <Grid item>
                                     <Typography
-                                        variant="h6"
                                         noWrap
                                         component="a"
                                         href="#app-bar-with-responsive-menu"
                                         sx={{
                                             display: { xs: 'none', md: 'flex' },
-                                            fontFamily: 'monospace',
+                                            fontSize: '16px',
                                             fontWeight: 500,
                                             color: 'black',
                                             textDecoration: 'none',
@@ -72,7 +71,7 @@ const Navbar = () => {
                         </Box>
                     </Box>
 
-
+                    {/* Menu icon */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -110,11 +109,12 @@ const Navbar = () => {
                         </Menu>
                     </Box>
 
+                    {/* center logo for small device */}
                     <Typography
                         variant="h5"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -124,16 +124,16 @@ const Navbar = () => {
                             letterSpacing: '.3rem',
                             color: 'black',
                             textDecoration: 'none',
-                        }}
-                    >
+                        }}>
                         <img
                             srcSet='https://i.ibb.co/qgvbwwc/logo.png'
                             src='https://i.ibb.co/qgvbwwc/logo.png'
                             alt='logo'
-                            style={{ height: '50px', width: '100px' }}
+                            style={{ height: '25px', width: '50px' }}
                         />
                     </Typography>
 
+                    {/* Page name for large device */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
@@ -146,7 +146,9 @@ const Navbar = () => {
                         ))}
                     </Box>
 
+                    {/* Profile section */}
                     <Box sx={{ flexGrow: 0 }}>
+                        <Button variant="contained" sx={{ marginRight: '5px' }}>Login</Button>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
