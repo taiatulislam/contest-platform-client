@@ -38,6 +38,7 @@ const Navbar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
     const handlePath = (page) => {
         navigate(`${page.path}`)
     };

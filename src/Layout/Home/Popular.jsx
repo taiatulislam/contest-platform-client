@@ -6,7 +6,7 @@ const Popular = () => {
     const [contest, setContest] = useState([]);
 
     useEffect(() => {
-        fetch('/contest.json')
+        fetch('http://localhost:5000/popular')
             .then(res => res.json())
             .then(data => setContest(data))
     }, [])
@@ -18,7 +18,7 @@ const Popular = () => {
             </Typography>
             <Grid container spacing={5} maxWidth='lg' sx={{ mx: 'auto', my: 10 }}>
                 {contest.map((contest) => (
-                    <Grid item key={contest.id} xs={12} md={4}>
+                    <Grid item key={contest._id} xs={12} md={4}>
                         <Card sx={{ maxWidth: 345 }}>
                             <CardMedia
                                 sx={{ height: 140 }}

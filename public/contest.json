@@ -1,42 +1,121 @@
 [
     {
-        "id": 1,
-        "image": "https://i.ibb.co/sKVsRLy/poster-1.png",
+        "image": "https://i.ibb.co/sytkhB7/poster-1.png",
         "name": "Poster Design",
         "category": "poster",
         "attemptCount": 0,
-        "details": "Attention all designers and creative minds! It's time to unleash your imagination and showcase your talent in the Poster Competition! Let your creativity soar as you interpret and express the essence of through. We're on the lookout for posters that captivate, inspire, and leave a lasting impression."
+        "details": "Attention all designers and creative minds! It's time to unleash your imagination and showcase your talent in the Poster Competition! Let your creativity soar as you interpret and express the essence of through. We're on the lookout for posters that captivate and inspire."
     },
     {
-        "id": 2,
-        "image": "https://i.ibb.co/86RN6dC/photography.png",
+        "image": "https://i.ibb.co/2MZGw0k/poster-2.jpg",
+        "name": "Poster Design",
+        "category": "poster",
+        "attemptCount": 0,
+        "details": "Attention all designers and creative minds! It's time to unleash your imagination and showcase your talent in the Poster Competition! Let your creativity soar as you interpret and express the essence of through. We're on the lookout for posters that captivate and inspire."
+    },
+    {
+        "image": "https://i.ibb.co/tCYyqp2/poster-3.jpg",
+        "name": "Poster Design",
+        "category": "poster",
+        "attemptCount": 5,
+        "details": "Attention all designers and creative minds! It's time to unleash your imagination and showcase your talent in the Poster Competition! Let your creativity soar as you interpret and express the essence of through. We're on the lookout for posters that captivate and inspire."
+    },
+    {
+        "image": "https://i.ibb.co/19cV2qb/poster-4.png",
+        "name": "Poster Design",
+        "category": "poster",
+        "attemptCount": 0,
+        "details": "Attention all designers and creative minds! It's time to unleash your imagination and showcase your talent in the Poster Competition! Let your creativity soar as you interpret and express the essence of through. We're on the lookout for posters that captivate and inspire."
+    },
+    {
+        "image": "https://i.ibb.co/hc9HmJp/photography-1.png",
+        "name": "Photography Contest",
+        "category": "photography",
+        "attemptCount": 3,
+        "details": "CALLING ALL PHOTOGRAPHERS! 🌟 Capture the beautiful and memorable Moment in the Photography Competition! 📷 Are you ready to turn your lens into a storyteller? Join us in celebrating the art of photography in the Photography Competition"
+    },
+    {
+        "image": "https://i.ibb.co/N7J5JzB/photography-2.jpg",
         "name": "Photography Contest",
         "category": "photography",
         "attemptCount": 0,
         "details": "CALLING ALL PHOTOGRAPHERS! 🌟 Capture the beautiful and memorable Moment in the Photography Competition! 📷 Are you ready to turn your lens into a storyteller? Join us in celebrating the art of photography in the Photography Competition"
     },
     {
-        "id": 3,
-        "image": "https://i.ibb.co/TRTy4xT/codegoda-1-copy.jpg",
+        "image": "https://i.ibb.co/HYLpkCZ/photography-3.jpg",
+        "name": "Photography Contest",
+        "category": "photography",
+        "attemptCount": 0,
+        "details": "CALLING ALL PHOTOGRAPHERS! 🌟 Capture the beautiful and memorable Moment in the Photography Competition! 📷 Are you ready to turn your lens into a storyteller? Join us in celebrating the art of photography in the Photography Competition"
+    },
+    {
+        "image": "https://i.ibb.co/Xx2JmBw/photography-4.png",
+        "name": "Photography Contest",
+        "category": "photography",
+        "attemptCount": 0,
+        "details": "CALLING ALL PHOTOGRAPHERS! 🌟 Capture the beautiful and memorable Moment in the Photography Competition! 📷 Are you ready to turn your lens into a storyteller? Join us in celebrating the art of photography in the Photography Competition"
+    },
+    {
+        "image": "https://i.ibb.co/vHQ0nXf/coding-1.jpg",
+        "name": "Coding Contest",
+        "category": "coding",
+        "attemptCount": 10,
+        "details": "💻 CALLING ALL CODE WIZARDS! 🚀 Dive into the Coding Competition and Unleash Your Algorithmic Brilliance! 💡Are you ready to code your way to victory? Join us in the ultimate battle of algorithms and logic in the Coding Competition! 💻✨"
+    },
+    {
+        "image": "https://i.ibb.co/hVhQyLR/coding-2.png",
         "name": "Coding Contest",
         "category": "coding",
         "attemptCount": 0,
         "details": "💻 CALLING ALL CODE WIZARDS! 🚀 Dive into the Coding Competition and Unleash Your Algorithmic Brilliance! 💡Are you ready to code your way to victory? Join us in the ultimate battle of algorithms and logic in the Coding Competition! 💻✨"
     },
     {
-        "id": 4,
-        "image": "https://i.ibb.co/ZM6D0KD/e-sports.png",
+        "image": "https://i.ibb.co/BPNQjpy/coding-3.png",
+        "name": "Coding Contest",
+        "category": "coding",
+        "attemptCount": 0,
+        "details": "💻 CALLING ALL CODE WIZARDS! 🚀 Dive into the Coding Competition and Unleash Your Algorithmic Brilliance! 💡Are you ready to code your way to victory? Join us in the ultimate battle of algorithms and logic in the Coding Competition! 💻✨"
+    },
+    {
+        "image": "https://i.ibb.co/2cCt2qK/coding-4.png",
+        "name": "Coding Contest",
+        "category": "coding",
+        "attemptCount": 0,
+        "details": "💻 CALLING ALL CODE WIZARDS! 🚀 Dive into the Coding Competition and Unleash Your Algorithmic Brilliance! 💡Are you ready to code your way to victory? Join us in the ultimate battle of algorithms and logic in the Coding Competition! 💻✨"
+    },
+    {
+        "image": "https://i.ibb.co/PgvskBr/gaming-1.png",
         "name": "Gaming Contest",
         "category": "gaming",
         "attemptCount": 0,
         "details": "CALLING ALL the GAMERS !🎮 LEVEL UP: Join the Gaming Competition and Embrace the Challenge! 🕹️ Attention all gamers! Get ready to embark on an epic journey in the Gaming Competition where skill, strategy, and adrenaline-fueled moments collide! 🎮✨"
     },
     {
-        "id": 5,
+        "image": "https://i.ibb.co/vwX0Lwz/gaming-2.jpg",
+        "name": "Gaming Contest",
+        "category": "gaming",
+        "attemptCount": 0,
+        "details": "CALLING ALL the GAMERS !🎮 LEVEL UP: Join the Gaming Competition and Embrace the Challenge! 🕹️ Attention all gamers! Get ready to embark on an epic journey in the Gaming Competition where skill, strategy, and adrenaline-fueled moments collide! 🎮✨"
+    },
+    {
+        "image": "https://i.ibb.co/9tsQ7MN/gaming-3.jpg",
+        "name": "Gaming Contest",
+        "category": "gaming",
+        "attemptCount": 5,
+        "details": "CALLING ALL the GAMERS !🎮 LEVEL UP: Join the Gaming Competition and Embrace the Challenge! 🕹️ Attention all gamers! Get ready to embark on an epic journey in the Gaming Competition where skill, strategy, and adrenaline-fueled moments collide! 🎮✨"
+    },
+    {
+        "image": "https://i.ibb.co/nQf060D/gaming-4.jpg",
+        "name": "Gaming Contest",
+        "category": "gaming",
+        "attemptCount": 1,
+        "details": "CALLING ALL the GAMERS !🎮 LEVEL UP: Join the Gaming Competition and Embrace the Challenge! 🕹️ Attention all gamers! Get ready to embark on an epic journey in the Gaming Competition where skill, strategy, and adrenaline-fueled moments collide! 🎮✨"
+    },
+    {
         "image": "https://i.ibb.co/7ChB7Rt/uiux.jpg",
         "name": "UI UX Design",
         "category": "uiux",
-        "attemptCount": 0,
+        "attemptCount": 2,
         "details": "🎨 CALLING ALL DESIGN MAESTROS! 🚀 Join the UI/UX Design Competition and Redefine User Experiences! 💻 Are you ready to shape the future of digital interfaces? Dive into the world of design excellence in the UI/UX Design Competition and let your creativity shine! 🌐🎉"
     }
 ]
