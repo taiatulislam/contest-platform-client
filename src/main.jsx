@@ -15,6 +15,7 @@ import ContestDetails from './Layout/ContestDetails/ContestDetails.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import Dashboard from './Layout/Dashboard/Dashboard.jsx';
 import UpdateProfile from './Layout/Dashboard/UpdateProfile.jsx';
+import Participated from './Layout/Dashboard/Participated.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateProfile",
-        element: <UpdateProfile />
+        element: <PrivateRoute><UpdateProfile /></PrivateRoute>
+      }
+      ,
+      {
+        path: "/participated",
+        element: <PrivateRoute><Participated /></PrivateRoute>
       }
     ],
   },

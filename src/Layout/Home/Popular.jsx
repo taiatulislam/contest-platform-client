@@ -40,7 +40,7 @@ const Popular = () => {
                                     Category: {contest.category}
                                 </Typography>
                                 <Typography component="div" style={{ fontSize: '16px', marginBottom: '5px' }}>
-                                    Participant: {contest.attemptCount}
+                                    Participant: {contest.participant.length}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
                                     {contest.details}

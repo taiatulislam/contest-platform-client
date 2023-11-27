@@ -26,7 +26,7 @@ const Dashboard = () => {
                         <nav aria-label="main mailbox folders">
                             <List >
                                 <ListItem>
-                                    <ListItemButton>
+                                    <ListItemButton onClick={() => handleMenu('/participated')}>
                                         <ListItemText primary="My Participated Contest" style={{ textAlign: "center" }} />
                                     </ListItemButton>
                                 </ListItem>
