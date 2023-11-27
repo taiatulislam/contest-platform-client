@@ -87,7 +87,7 @@ const Login = () => {
                         </Box>
 
                         <Box sx={{ mt: 1 }}>
-                            <Button variant="contained" type='sunmit' style={{ width: '70%' }}>Login</Button>
+                            <Button variant="contained" type='submit' style={{ width: '70%' }}>Login</Button>
                         </Box>
 
                     </form>

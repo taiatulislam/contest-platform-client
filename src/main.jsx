@@ -13,6 +13,8 @@ import SignUp from './Layout/SignUp/SignUp.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import ContestDetails from './Layout/ContestDetails/ContestDetails.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
+import Dashboard from './Layout/Dashboard/Dashboard.jsx';
+import UpdateProfile from './Layout/Dashboard/UpdateProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <PrivateRoute><ContestDetails /></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />
+      },
+      {
+        path: "/updateProfile",
+        element: <UpdateProfile />
       }
     ],
   },

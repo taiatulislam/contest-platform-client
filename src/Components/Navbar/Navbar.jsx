@@ -15,13 +15,11 @@ import { Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
-const pages = [{ name: 'Home', path: '/' }, { name: 'All Contest', path: '/allContest' }];
-
 const Navbar = () => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const { user, logout } = React.useContext(AuthContext);
+    const { user, logout, pages } = React.useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleOpenNavMenu = (event) => {
@@ -53,6 +51,12 @@ const Navbar = () => {
             }).catch((error) => {
                 console.log(error);
             });
+        setAnchorElUser(null);
+    }
+
+    const handleDashboard = () => {
+        navigate('/dashboard');
+        setAnchorElUser(null);
     }
 
     return (
@@ -190,10 +194,10 @@ const Navbar = () => {
                                     open={Boolean(anchorElUser)}
                                     onClose={handleCloseUserMenu}
                                 >
-                                    <MenuItem onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center">{user?.displayName}</Typography>
-                                    </MenuItem>
-                                    <MenuItem onClick={handleCloseUserMenu}>
+
+                                    <Typography textAlign="center" sx={{ px: 2 }}>{user?.displayName}</Typography>
+
+                                    <MenuItem onClick={handleDashboard}>
                                         <Typography textAlign="center">Dashboard</Typography>
                                     </MenuItem>
                                     <MenuItem onClick={handleLogout}>
