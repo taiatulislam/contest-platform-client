@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const AllContest = () => {
     const categories = ['poster', 'photography', 'gaming', 'coding', 'uiux'];
     const [contest, setContest] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:5000/allContest/poster`)
@@ -17,6 +19,10 @@ const AllContest = () => {
         fetch(`http://localhost:5000/allContest/${category}`)
             .then(res => res.json())
             .then(data => setContest(data))
+    }
+
+    const handleDetails = id => {
+        navigate(`/details/${id}`)
     }
 
     return (
@@ -56,7 +62,7 @@ const AllContest = () => {
                                                 </Typography>
                                             </CardContent>
                                             <CardActions>
-                                                <Button variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Details</Button>
+                                                <Button onClick={() => handleDetails(contest._id)} variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Details</Button>
                                             </CardActions>
                                         </Card>
                                     </Grid>

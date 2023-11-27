@@ -19,8 +19,6 @@ const Banner = () => {
             .then(data => setContests(data))
     }
 
-    console.log(contests);
-
     return (
         <div>
             <Grid

@@ -11,6 +11,8 @@ import AllContest from './Layout/AllContest/AllContest.jsx';
 import Login from './Layout/Login/Login.jsx';
 import SignUp from './Layout/SignUp/SignUp.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
+import ContestDetails from './Layout/ContestDetails/ContestDetails.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,11 +31,15 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
-      }
-      ,
+      },
       {
         path: "/signUp",
         element: <SignUp />,
+      },
+      {
+        path: "/details/:id",
+        element: <PrivateRoute><ContestDetails /></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
       }
     ],
   },

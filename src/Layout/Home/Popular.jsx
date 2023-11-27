@@ -1,15 +1,21 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Popular = () => {
 
     const [contest, setContest] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch('http://localhost:5000/popular')
             .then(res => res.json())
             .then(data => setContest(data))
     }, [])
+
+    const handleDetails = id => {
+        navigate(`/details/${id}`)
+    }
 
     return (
         <div>
@@ -41,7 +47,7 @@ const Popular = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Details</Button>
+                                <Button onClick={() => handleDetails(contest._id)} variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Details</Button>
                             </CardActions>
                         </Card>
                     </Grid>
