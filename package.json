@@ -23,7 +23,10 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.20.0",
     "react-swipeable-views": "^0.14.0",
+    "react-tabs": "^6.0.2",
+    "react-tabtab": "^2.0.0",
     "sort-by": "^1.2.0",
+    "styled-components": "^4.0.0",
     "sweetalert2": "^11.10.1"
   },
   "devDependencies": {

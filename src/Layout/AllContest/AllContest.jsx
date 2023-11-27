@@ -1,57 +1,73 @@
-import { useEffect, useState } from "react";
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
+import { useEffect, useState } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 
 const AllContest = () => {
-    const category = ['poster', 'photography', 'gaming', 'coding', 'uiux'];
-    const [poster, setPoster] = useState([]);
-    const [photography, setPhotography] = useState([]);
-    const [gaming, setGaming] = useState([]);
-    const [coding, setCoding] = useState([]);
-    const [uiux, setUiux] = useState([]);
+    const categories = ['poster', 'photography', 'gaming', 'coding', 'uiux'];
+    const [contest, setContest] = useState([]);
 
     useEffect(() => {
-        fetch('/contest.json')
+        fetch(`http://localhost:5000/allContest/poster`)
             .then(res => res.json())
-            .then(data => {
-                setPoster(data.filter(item => item.category === 'poster'))
-                setPhotography(data.filter(item => item.category === 'photography'))
-                setGaming(data.filter(item => item.category === 'gaming'))
-                setCoding(data.filter(item => item.category === 'coding'))
-                setUiux(data.filter(item => item.category === 'uiux'))
-            })
+            .then(data => setContest(data))
     }, [])
 
-    // Tabs
-    const [value, setValue] = React.useState('1');
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+    const handleTab = (category) => {
+        fetch(`http://localhost:5000/allContest/${category}`)
+            .then(res => res.json())
+            .then(data => setContest(data))
+    }
 
     return (
-        <div>
-            <Box sx={{ width: '100%' }}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        {
-                            category.map((categoryName) => (
-                                <Tab value={categoryName} key={categoryName} >
-                                    <Typography variant="h5" component="div" sx={{ mb: 1 }} style={{ color: 'black' }}>
-                                        {categoryName}
-                                    </Typography>
-                                </Tab>
-                            ))
-                        }
-                    </Tabs>
-                </Box>
-            </Box >
-        </div >
+        <Container style={{ textAlign: 'center', marginTop: '20px' }}>
+            <Tabs>
+                <TabList>
+                    {
+                        categories.map(item => <Tab onClick={() => handleTab(item)} key={item}>{item}</Tab>)
+                    }
+                </TabList>
+
+                {
+                    categories.map(item => (
+                        <TabPanel key={item}>
+                            <Grid container spacing={5} maxWidth='lg' sx={{ mx: 'auto', my: 10 }}>
+                                {contest.map(contest => (
+                                    <Grid item key={contest._id} xs={12} md={4}>
+                                        <Card sx={{ maxWidth: 345 }}>
+                                            <CardMedia
+                                                sx={{ height: 140 }}
+                                                image={contest.image}
+                                                title={contest.name}
+                                                style={{ width: 'full', height: '200px' }}
+                                            />
+                                            <CardContent>
+                                                <Typography variant="h5" component="div" sx={{ mb: 1 }}>
+                                                    {contest.name}
+                                                </Typography>
+                                                <Typography component="div" style={{ fontSize: '18px', marginBottom: '5px' }}>
+                                                    Category: {contest.category}
+                                                </Typography>
+                                                <Typography component="div" style={{ fontSize: '16px', marginBottom: '5px' }}>
+                                                    Participant: {contest.attemptCount}
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary">
+                                                    {contest.details}
+                                                </Typography>
+                                            </CardContent>
+                                            <CardActions>
+                                                <Button variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Details</Button>
+                                            </CardActions>
+                                        </Card>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </TabPanel>
+                    ))
+                }
+            </Tabs>
+        </Container>
     );
-};
+}
 
 export default AllContest;
