@@ -19,6 +19,10 @@ import Participated from './Layout/Dashboard/Participated.jsx';
 import AdminDashboard from './Layout/AdminDashboard/AdminDashboard.jsx';
 import ManageUsers from './Layout/AdminDashboard/ManageUsers.jsx';
 import ManageContest from './Layout/AdminDashboard/ManageContest.jsx';
+import CreatorDashboard from './Layout/CreatorDashboard/CreatorDashboard.jsx';
+import AddContest from './Layout/CreatorDashboard/AddContest.jsx';
+import CreatedContest from './Layout/CreatorDashboard/CreatedContest.jsx';
+import Participants from './Layout/CreatorDashboard/Participants.jsx';
 
 const router = createBrowserRouter([
   {
@@ -72,6 +76,23 @@ const router = createBrowserRouter([
   {
     path: "/manageContest",
     element: <ManageContest></ManageContest>
+  },
+  {
+    path: "/creatorDashboard",
+    element: <CreatorDashboard></CreatorDashboard>
+  },
+  {
+    path: "/addContest",
+    element: <AddContest></AddContest>
+  },
+  {
+    path: "/createdContest",
+    element: <CreatedContest></CreatedContest>
+  },
+  {
+    path: "/participants/:id",
+    element: <Participants></Participants>,
+    loader: ({ params }) => fetch(`http://localhost:5000/participants/${params.id}`)
   }
 ]);
 

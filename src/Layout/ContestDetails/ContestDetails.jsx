@@ -42,7 +42,7 @@ const ContestDetails = () => {
                         {contest?.name}
                     </Typography>
                     <Typography component="div" style={{ fontSize: '16px', marginBottom: '5px' }}>
-                        Participant: {contest?.participant.length}
+                        Participant: {contest?.participant?.length}
                     </Typography>
                     <Typography >
                         Time Remain: {days} days {hours} hours {minutes} min {seconds} sec

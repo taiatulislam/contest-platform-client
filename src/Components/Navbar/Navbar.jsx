@@ -62,7 +62,10 @@ const Navbar = () => {
                 if (data?.role === 'admin') {
                     navigate('/adminDashboard');
                 }
-                else if (data?.role === 'user') {
+                else if (data?.role === 'creator') {
+                    navigate('/creatorDashboard');
+                }
+                else {
                     navigate('/dashboard');
                 }
                 setAnchorElUser(null);
