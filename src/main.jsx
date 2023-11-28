@@ -43,22 +43,22 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <PrivateRoute><ContestDetails /></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
-      },
-      {
-        path: "/dashboard",
-        element: <Dashboard />
-      },
-      {
-        path: "/updateProfile",
-        element: <PrivateRoute><UpdateProfile /></PrivateRoute>
-      }
-      ,
-      {
-        path: "/participated",
-        element: <PrivateRoute><Participated /></PrivateRoute>
       }
     ],
   },
+  {
+    path: "/dashboard",
+    element: <Dashboard />
+  },
+  {
+    path: "/updateProfile",
+    element: <PrivateRoute><UpdateProfile /></PrivateRoute>
+  }
+  ,
+  {
+    path: "/participated",
+    element: <PrivateRoute><Participated /></PrivateRoute>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -43,12 +43,38 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user);
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'User SignIn successfully',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
+                const user = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    photoURL: result.user?.photoURL
+                }
+                fetch('http://localhost:5000/users/', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
                 })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.insertedId) {
+                            Swal.fire({
+                                title: 'Success',
+                                text: `User added successfully.`,
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            })
+                        }
+                        else {
+                            return Swal.fire({
+                                title: 'Error!',
+                                text: `${data.message}`,
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            })
+                        }
+                    })
                 navigate(location.state ? location.state : '/')
             })
             .catch(error => {

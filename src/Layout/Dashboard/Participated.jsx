@@ -13,7 +13,7 @@ const Participated = () => {
         fetch(`http://localhost:5000/user/${user?.email}`)
             .then(res => res.json())
             .then(data => setContest(data))
-    }, [])
+    }, [user?.email])
 
     const handleMenu = (path) => {
         navigate(`${path}`)
@@ -21,12 +21,9 @@ const Participated = () => {
 
     return (
         <div>
-            <Typography variant="h3" textAlign='center' component="div" sx={{ mt: 10 }}>
-                My participated Contest
-            </Typography>
             <Grid container>
                 <Grid item md={2}>
-                    <Box sx={{ width: '100%', bgcolor: 'orange' }}>
+                    <Box sx={{ width: '100%', height: '97vh', bgcolor: 'orange' }}>
                         <nav aria-label="main mailbox folders">
                             <List>
                                 <ListItem>
@@ -63,7 +60,10 @@ const Participated = () => {
                         </nav>
                     </Box>
                 </Grid>
-                <Grid item md={10} sx={{ mt: 5 }}>
+                <Grid item md={10} >
+                    <Typography variant="h3" textAlign='center' component="div" sx={{ mt: 5 }}>
+                        My participated Contest
+                    </Typography>
                     {
                         <Grid container spacing={5} maxWidth='lg' sx={{ mx: 'auto', my: 10 }}>
                             {contest.map((contest) => (

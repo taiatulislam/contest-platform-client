@@ -22,7 +22,7 @@ const Dashboard = () => {
         <div>
             <Grid container>
                 <Grid item md={2}>
-                    <Box sx={{ width: '100%', bgcolor: 'orange' }}>
+                    <Box sx={{ width: '100%', height: '97vh', bgcolor: 'orange' }}>
                         <nav aria-label="main mailbox folders">
                             <List >
                                 <ListItem>
