@@ -66,20 +66,20 @@ const SignUp = () => {
                     .then(data => {
                         console.log(data);
                         if (data.insertedId) {
-                            Swal.fire({
-                                title: 'Success',
-                                text: `User created successfully.`,
-                                icon: 'success',
-                                confirmButtonText: 'OK'
-                            })
                             updateUser(name, photo, role)
                                 .then(() => {
+                                    Swal.fire({
+                                        title: 'Success',
+                                        text: `User created successfully.`,
+                                        icon: 'success',
+                                        confirmButtonText: 'OK'
+                                    })
+                                    form.reset()
+                                    navigate(location.state ? location.state : '/')
 
                                 }).catch((error) => {
                                     console.log(error);
                                 });
-                            form.reset()
-                            navigate(location.state ? location.state : '/')
                         }
                         else {
                             return Swal.fire({
@@ -137,7 +137,7 @@ const SignUp = () => {
 
                     </form>
                     <Typography variant="h6" component="h6" sx={{ mt: 2 }}>
-                        Already have an account? <Link to="/login" className="text-[#FA8072]">Login</Link>
+                        Already have an account? <Link to="/login" style={{ textDecoration: 'none' }}>Login</Link>
                     </Typography>
                 </Grid>
             </Grid>

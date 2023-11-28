@@ -31,7 +31,7 @@ const AdminDashboard = () => {
                                     </ListItemButton>
                                 </ListItem>
                                 <ListItem>
-                                    <ListItemButton>
+                                    <ListItemButton onClick={() => handleMenu('/manageContest')}>
                                         <ListItemText primary="Manage Contest" style={{ textAlign: "center" }} />
                                     </ListItemButton>
                                 </ListItem>

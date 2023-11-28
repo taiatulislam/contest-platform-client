@@ -13,6 +13,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const pages = [{ name: 'Home', path: '/' }, { name: 'All Contest', path: '/allContest' }];
+    const category = ['poster', 'photography', 'coding', 'gaming', 'uiux']
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -61,7 +62,8 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         logout,
-        pages
+        pages,
+        category
     }
 
     return (

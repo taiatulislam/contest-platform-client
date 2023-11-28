@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router-dom";
 const ContestDetails = () => {
 
     const contest = useLoaderData();
+
     const deadline = "November, 30, 2023";
 
     const [days, setDays] = useState(0);
@@ -32,22 +33,22 @@ const ContestDetails = () => {
             <Card sx={{ mt: 5 }}>
                 <CardMedia
                     sx={{ height: 500 }}
-                    image={contest.image}
-                    title={contest.name}
+                    image={contest?.image}
+                    title={contest?.name}
                     style={{ width: 'full' }}
                 />
                 <CardContent>
                     <Typography variant="h5" component="div" sx={{ mb: 1 }}>
-                        {contest.name}
+                        {contest?.name}
                     </Typography>
                     <Typography component="div" style={{ fontSize: '16px', marginBottom: '5px' }}>
-                        Participant: {contest.attemptCount}
+                        Participant: {contest?.participant.length}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography >
                         Time Remain: {days} days {hours} hours {minutes} min {seconds} sec
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {contest.details}
+                    <Typography color="text.secondary">
+                        {contest?.details}
                     </Typography>
                 </CardContent>
                 <CardActions>

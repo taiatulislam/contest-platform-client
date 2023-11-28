@@ -79,7 +79,7 @@ const UpdateProfile = () => {
                         <img
                             src={`${user?.photoURL}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                             alt='profile'
-                            style={{ width: '250px' }}
+                            style={{ width: '250px', height: '250px' }}
                         />
                     </Box>
                     <Form onSubmit={updateProfile}>

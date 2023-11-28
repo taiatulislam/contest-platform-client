@@ -68,9 +68,9 @@ const Login = () => {
                         }
                         else {
                             return Swal.fire({
-                                title: 'Error!',
+                                title: 'Success!',
                                 text: `${data.message}`,
-                                icon: 'error',
+                                icon: 'success',
                                 confirmButtonText: 'OK'
                             })
                         }
@@ -121,7 +121,7 @@ const Login = () => {
                         <Button onClick={handleGoogle} variant="contained" style={{ width: '70%', backgroundColor: 'silver' }}><FcGoogle style={{ marginRight: '5px' }}></FcGoogle>Google Sign In</Button>
                     </Box>
                     <Typography variant="h6" component="h6" sx={{ mt: 2 }}>
-                        New to the site? <Link to="/signUp" className="text-[#FA8072]">Sign Up</Link>
+                        New to the site? <Link to='/signUp' state={location.state} style={{ textDecoration: 'none' }}>Sign Up</Link>
                     </Typography>
                 </Grid>
             </Grid>

@@ -18,6 +18,7 @@ import UpdateProfile from './Layout/Dashboard/UpdateProfile.jsx';
 import Participated from './Layout/Dashboard/Participated.jsx';
 import AdminDashboard from './Layout/AdminDashboard/AdminDashboard.jsx';
 import ManageUsers from './Layout/AdminDashboard/ManageUsers.jsx';
+import ManageContest from './Layout/AdminDashboard/ManageContest.jsx';
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
   {
     path: "/manageUsers",
     element: <ManageUsers></ManageUsers>
+  },
+  {
+    path: "/manageContest",
+    element: <ManageContest></ManageContest>
   }
 ]);
 

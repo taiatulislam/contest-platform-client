@@ -1,22 +1,26 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, TextField, Typography } from "@mui/material";
-import { useState } from "react";
-import { Form } from "react-router-dom";
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from "@mui/material";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
 
     const [contests, setContests] = useState([]);
+    const { category } = useContext(AuthContext);
     const [contestCategory, setContestCategory] = useState([]);
+    const navigate = useNavigate();
 
-    // get search data
-    const handleSearch = e => {
+    const handleChange = (e) => {
         e.preventDefault();
-        const form = e.target;
-        const category = form.category.value;
+        const category = e.target.value;
         setContestCategory(category)
-
         fetch(`http://localhost:5000/search/${category}`)
             .then(res => res.json())
             .then(data => setContests(data))
+    };
+
+    const handleDetails = id => {
+        navigate(`/details/${id}`)
     }
 
     return (
@@ -42,10 +46,18 @@ const Banner = () => {
                         </Typography>
 
                         <Box sx={{ mt: 5, textAlign: 'center' }}>
-                            <Form onSubmit={handleSearch}>
-                                <TextField name='category' label="Search by Category ..." variant="outlined" style={{ backgroundColor: 'white' }} sx={{ width: '50%', borderRadius: '5px' }} />
-                                <Button type="submit" variant="contained" sx={{ p: 2 }}>Search</Button>
-                            </Form>
+                            <FormControl sx={{ width: '50%' }} >
+                                <InputLabel>Search by Category ...</InputLabel>
+                                <Select
+                                    defaultValue={''}
+                                    onChange={handleChange}
+                                    style={{ backgroundColor: 'white' }} sx={{ width: '100%', borderRadius: '5px', margin: 'auto' }}
+                                >
+                                    {
+                                        category.map((category) => <MenuItem key={category} value={category}>{category}</MenuItem>)
+                                    }
+                                </Select>
+                            </FormControl>
                         </Box>
                     </Grid>
                 </Container>
@@ -81,7 +93,7 @@ const Banner = () => {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Details</Button>
+                                            <Button onClick={() => handleDetails(contest._id)} variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Details</Button>
                                         </CardActions>
                                     </Card>
                                 </Grid>
@@ -89,7 +101,7 @@ const Banner = () => {
                         </Grid>
                     </Grid> :
                     <Typography variant="h5" textAlign='center' component="div" sx={{ mt: 10 }}>
-                        Type in the search box for find contest
+                        Select category for find contest
                     </Typography>
             }
         </div>
