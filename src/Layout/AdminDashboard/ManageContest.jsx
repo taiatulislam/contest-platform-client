@@ -1,7 +1,8 @@
-import { Box, Divider, Grid, List, ListItem, ListItemButton, ListItemText, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Box, Button, Divider, Grid, List, ListItem, ListItemButton, ListItemText, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2'
 
 const ManageContest = () => {
 
@@ -13,10 +14,54 @@ const ManageContest = () => {
         fetch('http://localhost:5000/allContest')
             .then(res => res.json())
             .then(data => setContests(data))
-    }, [])
+    }, [contests])
 
     const handleMenu = (path) => {
         navigate(`${path}`)
+    }
+
+    const handleAccept = (id) => {
+        const user = {
+            id: id,
+            status: 'accept'
+        }
+        fetch('http://localhost:5000/allContest', {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: `Approved.`,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            })
+    }
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/allContest/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Contest delete',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            })
     }
 
     return (
@@ -68,6 +113,7 @@ const ManageContest = () => {
                                     <TableCell align="center">Image</TableCell>
                                     <TableCell align="center">Details</TableCell>
                                     <TableCell align="center">Status</TableCell>
+                                    <TableCell align="center">Accept</TableCell>
                                     <TableCell align="center">Delete</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -82,12 +128,18 @@ const ManageContest = () => {
                                             <img
                                                 src={contest?.image}
                                                 alt='contest'
-                                                style={{ width: '250px', height: '100px' }}
+                                                style={{ width: '150px', height: '100px' }}
                                             />
                                         </TableCell>
-                                        <TableCell align="center">{contest?.details}</TableCell>
+                                        <TableCell align="center">{contest?.details.slice(0, 80)}</TableCell>
                                         <TableCell align="center">{contest?.status}</TableCell>
-                                        <TableCell align="center">Delete</TableCell>
+                                        <TableCell align="center">
+                                            {
+                                                contest?.status === 'accept' ? <Button disabled variant="outlined" sx={{ textTransform: "none" }}>Accept</Button> :
+                                                    <Button onClick={() => handleAccept(contest._id)} variant="outlined" sx={{ textTransform: "none" }}>Accept</Button>
+                                            }
+                                        </TableCell>
+                                        <TableCell onClick={() => handleDelete(contest._id)} align="center"><Button variant="outlined" color="error" sx={{ textTransform: "none" }}>Delete</Button></TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>

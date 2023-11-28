@@ -44,16 +44,16 @@ const ManageUsers = () => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 Swal.fire("Admin role apply");
-                const role = {
+                const user = {
                     email: email,
                     role: 'admin'
                 }
-                fetch('http://localhost:5000/alluser', {
+                fetch('http://localhost:5000/allUser', {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
                     },
-                    body: JSON.stringify(role)
+                    body: JSON.stringify(user)
                 })
                     .then(res => res.json())
                     .then(data => {

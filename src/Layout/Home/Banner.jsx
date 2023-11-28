@@ -16,7 +16,10 @@ const Banner = () => {
         setContestCategory(category)
         fetch(`http://localhost:5000/search/${category}`)
             .then(res => res.json())
-            .then(data => setContests(data))
+            .then(data => {
+                setContests(data.filter(contest =>
+                    contest.status !== 'pending'))
+            })
     };
 
     const handleDetails = id => {

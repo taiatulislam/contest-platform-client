@@ -12,7 +12,10 @@ const AllContest = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/allContest/poster`)
             .then(res => res.json())
-            .then(data => setContest(data))
+            .then(data => {
+                setContest(data.filter(contest =>
+                    contest.status !== 'pending'))
+            })
     }, [])
 
     const handleTab = (category) => {
