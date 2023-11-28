@@ -16,6 +16,8 @@ import PrivateRoute from './Routes/PrivateRoute.jsx';
 import Dashboard from './Layout/Dashboard/Dashboard.jsx';
 import UpdateProfile from './Layout/Dashboard/UpdateProfile.jsx';
 import Participated from './Layout/Dashboard/Participated.jsx';
+import AdminDashboard from './Layout/AdminDashboard/AdminDashboard.jsx';
+import ManageUsers from './Layout/AdminDashboard/ManageUsers.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +46,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute><ContestDetails /></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
       }
-    ],
+    ]
   },
   {
     path: "/dashboard",
@@ -53,11 +55,18 @@ const router = createBrowserRouter([
   {
     path: "/updateProfile",
     element: <PrivateRoute><UpdateProfile /></PrivateRoute>
-  }
-  ,
+  },
   {
     path: "/participated",
     element: <PrivateRoute><Participated /></PrivateRoute>
+  },
+  {
+    path: "/adminDashboard",
+    element: <AdminDashboard></AdminDashboard>
+  },
+  {
+    path: "/manageUsers",
+    element: <ManageUsers></ManageUsers>
   }
 ]);
 

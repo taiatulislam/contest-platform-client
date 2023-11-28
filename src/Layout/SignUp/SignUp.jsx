@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
@@ -7,6 +7,8 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 const SignUp = () => {
 
     const { createUser, updateUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleForm = e => {
         e.preventDefault();
@@ -15,6 +17,7 @@ const SignUp = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
+        const role = 'user';
 
         if (password.length < 6) {
             return Swal.fire({
@@ -46,21 +49,47 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-                result.user.displayName = name;
-                result.user.photoURL = photo;
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Create User successfully',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
+                const user = {
+                    email: email,
+                    displayName: name,
+                    photoURL: photo,
+                    role: role
+                }
+                fetch('http://localhost:5000/users/', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
                 })
-                updateUser(name, photo)
-                    .then(() => {
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.insertedId) {
+                            Swal.fire({
+                                title: 'Success',
+                                text: `User created successfully.`,
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            })
+                            updateUser(name, photo, role)
+                                .then(() => {
 
-                    }).catch((error) => {
-                        console.log(error);
-                    });
-                form.reset()
+                                }).catch((error) => {
+                                    console.log(error);
+                                });
+                            form.reset()
+                            navigate(location.state ? location.state : '/')
+                        }
+                        else {
+                            return Swal.fire({
+                                title: 'Success!',
+                                text: `${data.message}`,
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            })
+                        }
+                    })
             })
             .catch(error => {
                 Swal.fire({

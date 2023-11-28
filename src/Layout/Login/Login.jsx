@@ -30,9 +30,9 @@ const Login = () => {
             })
             .catch(error => {
                 Swal.fire({
-                    title: 'Error!',
+                    title: 'Success!',
                     text: `${error.message}`,
-                    icon: 'error',
+                    icon: 'success',
                     confirmButtonText: 'OK'
                 })
             })

@@ -54,9 +54,16 @@ const Navbar = () => {
         setAnchorElUser(null);
     }
 
-    const handleDashboard = () => {
-        navigate('/dashboard');
-        setAnchorElUser(null);
+    const handleDashboard = (email) => {
+        fetch(`http://localhost:5000/userRole/${email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.role)
+                if (data?.role === 'admin') {
+                    navigate('/adminDashboard');
+                }
+                setAnchorElUser(null);
+            })
     }
 
     return (
@@ -197,7 +204,7 @@ const Navbar = () => {
 
                                     <Typography textAlign="center" sx={{ px: 2 }}>{user?.displayName}</Typography>
 
-                                    <MenuItem onClick={handleDashboard}>
+                                    <MenuItem onClick={() => handleDashboard(user?.email)}>
                                         <Typography textAlign="center">Dashboard</Typography>
                                     </MenuItem>
                                     <MenuItem onClick={handleLogout}>
