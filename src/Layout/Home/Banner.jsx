@@ -14,7 +14,7 @@ const Banner = () => {
         e.preventDefault();
         const category = e.target.value;
         setContestCategory(category)
-        fetch(`http://localhost:5000/search/${category}`)
+        fetch(`https://contest-platform-server-rho.vercel.app/search/${category}`)
             .then(res => res.json())
             .then(data => {
                 setContests(data.filter(contest =>

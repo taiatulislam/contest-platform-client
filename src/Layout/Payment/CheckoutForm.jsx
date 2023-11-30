@@ -47,7 +47,7 @@ const CheckoutForm = ({ contest }) => {
                     confirmButtonText: 'OK'
                 })
                 const updateData = { id: contest?._id, email: user?.email }
-                fetch(`http://localhost:5000/payment`, {
+                fetch(`https://contest-platform-server-rho.vercel.app/payment`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

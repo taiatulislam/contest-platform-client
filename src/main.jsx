@@ -25,6 +25,7 @@ import CreatedContest from './Layout/CreatorDashboard/CreatedContest.jsx';
 import Participants from './Layout/CreatorDashboard/Participants.jsx';
 import Payment from './Layout/Payment/Payment.jsx';
 import EditContest from './Layout/CreatorDashboard/EditContest.jsx';
+import Winning from './Layout/Dashboard/Winning.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,12 +52,12 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <PrivateRoute><ContestDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+        loader: ({ params }) => fetch(`https://contest-platform-server-rho.vercel.app/details/${params.id}`)
       },
       {
         path: "/payment/:id",
         element: <Payment></Payment>,
-        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+        loader: ({ params }) => fetch(`https://contest-platform-server-rho.vercel.app/details/${params.id}`)
       }
     ]
   },
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
   {
     path: "/participated",
     element: <PrivateRoute><Participated /></PrivateRoute>
+  },
+  {
+    path: "/winning",
+    element: <Winning></Winning>
   },
   {
     path: "/adminDashboard",
@@ -95,7 +100,7 @@ const router = createBrowserRouter([
   {
     path: "/editContest/:id",
     element: <EditContest></EditContest>,
-    loader: ({ params }) => fetch(`http://localhost:5000/editContest/${params.id}`)
+    loader: ({ params }) => fetch(`https://contest-platform-server-rho.vercel.app/editContest/${params.id}`)
   },
   {
     path: "/createdContest",
@@ -104,7 +109,7 @@ const router = createBrowserRouter([
   {
     path: "/participants/:id",
     element: <Participants></Participants>,
-    loader: ({ params }) => fetch(`http://localhost:5000/participants/${params.id}`)
+    loader: ({ params }) => fetch(`https://contest-platform-server-rho.vercel.app/participants/${params.id}`)
   }
 ]);
 

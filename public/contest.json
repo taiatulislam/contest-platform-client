@@ -17,9 +17,11 @@
         "name": "Poster Design",
         "category": "poster",
         "participants": [
-            "taiatulislamapon@gmail.com"
+            "taiatulislamapon@gmail.com",
+            "user@gmail.com"
         ],
         "winner": "user@gmail.com",
+        "creator": "creator@gmail.com",
         "price": 500,
         "deadline": "january,01,2024",
         "prize": 10000,
@@ -84,12 +86,15 @@
         "image": "https://i.ibb.co/HYLpkCZ/photography-3.jpg",
         "name": "Photography Contest",
         "category": "photography",
-        "participants": [],
+        "participants": [
+            "user@gmail.com"
+        ],
         "price": 500,
         "deadline": "january,01,2024",
         "prize": 10000,
         "status": "accept",
         "winner": "user@gmail.com",
+        "creator": "creator@gmail.com",
         "details": "CALLING ALL PHOTOGRAPHERS! 🌟 Capture the beautiful and memorable Moment in the Photography Competition! 📷 Are you ready to turn your lens into a storyteller? Join us in celebrating the art of photography in the Photography Competition"
     },
     {
@@ -150,8 +155,11 @@
         "image": "https://i.ibb.co/2cCt2qK/coding-4.png",
         "name": "Coding Contest",
         "category": "coding",
-        "participants": [],
+        "participants": [
+            "user@gmail.com"
+        ],
         "winner": "user@gmail.com",
+        "creator": "creator@gmail.com",
         "price": 500,
         "deadline": "january,01,2024",
         "prize": 10000,

@@ -3,21 +3,24 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import { Box, Card, CardContent, CardMedia, Divider, Grid, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const Participated = () => {
+const Winning = () => {
 
     const { user, pages } = React.useContext(AuthContext);
     const [contests, setContests] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`https://contest-platform-server-rho.vercel.app/user/${user?.email}`)
+        fetch(`https://contest-platform-server-rho.vercel.app/allContest`)
             .then(res => res.json())
-            .then(data => setContests(data))
+            .then(data => {
+                setContests(data.filter(data => data.winner === user?.email))
+            })
     }, [])
 
     const handleMenu = (path) => {
         navigate(`${path}`)
     }
+
 
     return (
         <div>
@@ -32,7 +35,7 @@ const Participated = () => {
                                     </ListItemButton>
                                 </ListItem>
                                 <ListItem>
-                                    <ListItemButton onClick={() => handleMenu('/winning')}>
+                                    <ListItemButton>
                                         <ListItemText primary="My Winning Contest" style={{ textAlign: "center" }} />
                                     </ListItemButton>
                                 </ListItem>
@@ -62,7 +65,7 @@ const Participated = () => {
                 </Grid>
                 <Grid item xs={12} sm={10} >
                     <Typography variant="h3" textAlign='center' component="div" sx={{ mt: 5 }}>
-                        My participated Contest
+                        My Wining Contest
                     </Typography>
                     {
                         <Grid container spacing={5} maxWidth='lg' sx={{ mx: 'auto', my: 10 }}>
@@ -100,4 +103,4 @@ const Participated = () => {
     );
 };
 
-export default Participated;
+export default Winning;

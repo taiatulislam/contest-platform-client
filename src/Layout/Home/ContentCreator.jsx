@@ -17,7 +17,7 @@ const ContentCreator = () => {
     const [winners, setWinners] = React.useState([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:5000/winner')
+        fetch('https://contest-platform-server-rho.vercel.app/winner')
             .then(res => res.json())
             .then(data => setWinners(data))
     }, [])

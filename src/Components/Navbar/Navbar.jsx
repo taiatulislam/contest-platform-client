@@ -55,7 +55,7 @@ const Navbar = () => {
     }
 
     const handleDashboard = (email) => {
-        fetch(`http://localhost:5000/userRole/${email}`)
+        fetch(`https://contest-platform-server-rho.vercel.app/userRole/${email}`)
             .then(res => res.json())
             .then(data => {
                 if (data?.role === 'admin') {

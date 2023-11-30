@@ -55,7 +55,7 @@ const SignUp = () => {
                     photoURL: photo,
                     role: role
                 }
-                fetch('http://localhost:5000/users/', {
+                fetch('https://contest-platform-server-rho.vercel.app/users/', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

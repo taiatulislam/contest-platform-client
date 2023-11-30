@@ -33,7 +33,7 @@ const AddContest = () => {
 
         const contest = { name, image, price, prize, category, deadline, details, winner: "", status: 'pending', creator: user?.email, participants: [] }
 
-        fetch(`http://localhost:5000/allContest/`, {
+        fetch(`https://contest-platform-server-rho.vercel.app/allContest/`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

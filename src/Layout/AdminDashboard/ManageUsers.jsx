@@ -24,7 +24,7 @@ const ManageUsers = () => {
     const [allUser, setAllUser] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/alluser')
+        fetch('https://contest-platform-server-rho.vercel.app/alluser')
             .then(res => res.json())
             .then(data => setAllUser(data))
     }, [allUser])
@@ -50,7 +50,7 @@ const ManageUsers = () => {
                     email: email,
                     role: 'admin'
                 }
-                fetch('http://localhost:5000/allUser', {
+                fetch('https://contest-platform-server-rho.vercel.app/allUser', {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -67,7 +67,7 @@ const ManageUsers = () => {
                     email: email,
                     role: 'creator'
                 }
-                fetch('http://localhost:5000/alluser', {
+                fetch('https://contest-platform-server-rho.vercel.app/alluser', {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -85,7 +85,7 @@ const ManageUsers = () => {
                     email: email,
                     role: 'user'
                 }
-                fetch('http://localhost:5000/alluser', {
+                fetch('https://contest-platform-server-rho.vercel.app/alluser', {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

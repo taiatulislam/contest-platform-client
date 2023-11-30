@@ -8,7 +8,7 @@ const Popular = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:5000/popular')
+        fetch('https://contest-platform-server-rho.vercel.app/popular')
             .then(res => res.json())
             .then(data => setContests(data))
     }, [])

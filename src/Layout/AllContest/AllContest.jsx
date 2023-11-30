@@ -10,7 +10,7 @@ const AllContest = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allContest/poster`)
+        fetch(`https://contest-platform-server-rho.vercel.app/allContest/poster`)
             .then(res => res.json())
             .then(data => {
                 setContests(data.filter(contest =>
@@ -19,7 +19,7 @@ const AllContest = () => {
     }, [])
 
     const handleTab = (category) => {
-        fetch(`http://localhost:5000/allContest/${category}`)
+        fetch(`https://contest-platform-server-rho.vercel.app/allContest/${category}`)
             .then(res => res.json())
             .then(data => setContests(data))
     }
@@ -40,9 +40,9 @@ const AllContest = () => {
                 {
                     categories?.map(item => (
                         <TabPanel key={item}>
-                            <Grid container spacing={5} maxWidth='lg' sx={{ my: 10 }}>
+                            <Grid container spacing={5} sx={{ my: 10 }}>
                                 {contests?.map(contest => (
-                                    <Grid item key={contest?._id} xs={12} md={4}>
+                                    <Grid item key={contest?._id} xs={12} sm={6}>
                                         <Card >
                                             <CardMedia
                                                 image={contest?.image}

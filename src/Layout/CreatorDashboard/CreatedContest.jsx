@@ -17,7 +17,7 @@ const CreatedContest = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allContest`)
+        fetch(`https://contest-platform-server-rho.vercel.app/allContest`)
             .then(res => res.json())
             .then(data => {
                 setContests(data.filter(contest =>
@@ -38,7 +38,7 @@ const CreatedContest = () => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/allContest/${id}`, {
+        fetch(`https://contest-platform-server-rho.vercel.app/allContest/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

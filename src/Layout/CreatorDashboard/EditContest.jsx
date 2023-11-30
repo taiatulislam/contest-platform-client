@@ -37,7 +37,7 @@ const EditContest = () => {
 
         const contest = { name, image, price, prize, category, deadline, details }
 
-        fetch(`http://localhost:5000/editContest/${contest?._id}`, {
+        fetch(`https://contest-platform-server-rho.vercel.app/editContest/${contest?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

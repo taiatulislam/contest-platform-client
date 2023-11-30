@@ -11,7 +11,7 @@ const ManageContest = () => {
     const [contests, setContests] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/allContest')
+        fetch('https://contest-platform-server-rho.vercel.app/allContest')
             .then(res => res.json())
             .then(data => setContests(data))
     }, [contests])
@@ -25,7 +25,7 @@ const ManageContest = () => {
             id: id,
             status: 'accept'
         }
-        fetch('http://localhost:5000/allContest', {
+        fetch('https://contest-platform-server-rho.vercel.app/allContest', {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +47,7 @@ const ManageContest = () => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/allContest/${id}`, {
+        fetch(`https://contest-platform-server-rho.vercel.app/allContest/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

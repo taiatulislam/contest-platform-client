@@ -46,7 +46,7 @@ const UpdateProfile = () => {
                                     </ListItemButton>
                                 </ListItem>
                                 <ListItem>
-                                    <ListItemButton>
+                                    <ListItemButton onClick={() => handleMenu('/winning')}>
                                         <ListItemText primary="My Winning Contest" style={{ textAlign: "center" }} />
                                     </ListItemButton>
                                 </ListItem>
