@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -18,14 +18,14 @@ const Popular = () => {
     }
 
     return (
-        <div>
+        <Container textAlign='center'>
             <Typography variant="h3" textAlign='center' component="div" sx={{ mt: 10 }}>
                 Popular Contest
             </Typography>
-            <Grid container spacing={5} maxWidth='lg' sx={{ mx: 'auto', my: 10 }}>
+            <Grid container spacing={5} sx={{ my: 10 }}>
                 {contests?.map((contest) => (
-                    <Grid item key={contest?._id} xs={12} md={4}>
-                        <Card sx={{ maxWidth: 345 }}>
+                    <Grid item key={contest?._id} xs={12} sm={6}>
+                        <Card>
                             <CardMedia
                                 sx={{ height: 140 }}
                                 image={contest?.image}
@@ -53,7 +53,7 @@ const Popular = () => {
                     </Grid>
                 ))}
             </Grid>
-        </div>
+        </Container>
     );
 };
 

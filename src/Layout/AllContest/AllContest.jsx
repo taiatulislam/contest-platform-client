@@ -40,7 +40,7 @@ const AllContest = () => {
                 {
                     categories?.map(item => (
                         <TabPanel key={item}>
-                            <Grid container spacing={5} maxWidth='lg' sx={{ mx: 'auto', my: 10 }}>
+                            <Grid container spacing={5} maxWidth='lg' sx={{ my: 10 }}>
                                 {contests?.map(contest => (
                                     <Grid item key={contest?._id} xs={12} md={4}>
                                         <Card >

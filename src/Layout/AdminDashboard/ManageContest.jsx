@@ -67,7 +67,7 @@ const ManageContest = () => {
     return (
         <div>
             <Grid container >
-                <Grid item md={2} style={{ position: 'fixed' }}>
+                <Grid item xs={12} sm={2} style={{ position: 'fixed' }}>
                     <Box sx={{ width: '100%', height: '97vh', bgcolor: 'orange' }} >
                         <nav aria-label="main mailbox folders">
                             <List >
@@ -100,7 +100,7 @@ const ManageContest = () => {
                         </nav>
                     </Box>
                 </Grid>
-                <Grid item md={10} sx={{ mt: 5, mx: 'auto' }}>
+                <Grid item xs={12} sm={10} sx={{ mt: 5, mx: 'auto' }}>
                     <Typography variant='h3' textAlign="center">
                         All Users
                     </Typography>

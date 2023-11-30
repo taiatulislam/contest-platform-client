@@ -36,7 +36,7 @@ const UpdateProfile = () => {
     return (
         <div>
             <Grid container>
-                <Grid item md={2}>
+                <Grid item xs={12} sm={2}>
                     <Box sx={{ width: '100%', height: '97vh', bgcolor: 'orange' }}>
                         <nav aria-label="main mailbox folders">
                             <List >
@@ -74,7 +74,7 @@ const UpdateProfile = () => {
                         </nav>
                     </Box>
                 </Grid>
-                <Grid item md={10} sx={{ mt: 5 }}>
+                <Grid item xs={12} sm={10} sx={{ mt: 5 }}>
                     <Box style={{ textAlign: 'center' }}>
                         <img
                             src={`${user?.photoURL}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}

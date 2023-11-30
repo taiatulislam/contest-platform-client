@@ -58,7 +58,7 @@ const CreatedContest = () => {
     return (
         <div>
             <Grid container>
-                <Grid item md={2}>
+                <Grid item xs={12} sm={2}>
                     <Box sx={{ width: '100%', height: '97vh', bgcolor: 'orange' }}>
                         <nav aria-label="main mailbox folders">
                             <List >
@@ -91,7 +91,7 @@ const CreatedContest = () => {
                         </nav>
                     </Box>
                 </Grid>
-                <Grid item md={10} sx={{ mt: 5 }}>
+                <Grid item xs={12} sm={10} sx={{ mt: 5 }}>
                     <Typography variant='h3' textAlign="center">
                         My Created Contest
                     </Typography>

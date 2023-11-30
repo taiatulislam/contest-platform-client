@@ -91,7 +91,7 @@ const Login = () => {
     return (
         <div>
             <Grid container alignItems='center'>
-                <Grid item md={6}>
+                <Grid item xs={12} sm={6}>
                     <img
                         srcSet='https://i.ibb.co/9ZZMTqq/login.jpg'
                         src='https://i.ibb.co/qgvbwwc/logo.png'
@@ -99,7 +99,7 @@ const Login = () => {
                         style={{ width: '100%', padding: '20px' }}
                     />
                 </Grid>
-                <Grid item md={6} textAlign='center' sx={{ mt: 5 }}>
+                <Grid item xs={12} sm={6} textAlign='center' sx={{ mt: 5 }}>
                     <Typography variant="h4" component="h2">
                         Login
                     </Typography>

@@ -22,7 +22,7 @@ const Participated = () => {
     return (
         <div>
             <Grid container>
-                <Grid item md={2}>
+                <Grid item xs={12} sm={2}>
                     <Box sx={{ width: '100%', height: '97vh', bgcolor: 'orange' }}>
                         <nav aria-label="main mailbox folders">
                             <List>
@@ -60,7 +60,7 @@ const Participated = () => {
                         </nav>
                     </Box>
                 </Grid>
-                <Grid item md={10} >
+                <Grid item xs={12} sm={10} >
                     <Typography variant="h3" textAlign='center' component="div" sx={{ mt: 5 }}>
                         My participated Contest
                     </Typography>
