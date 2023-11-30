@@ -74,7 +74,7 @@ const Banner = () => {
                             </Typography>
                             <Grid container spacing={5} sx={{ my: 10 }}>
                                 {contests.map((contest) => (
-                                    <Grid item key={contest._id} xs={12} sm={6}>
+                                    <Grid item key={contest._id} xs={12} sm={6} md={4}>
                                         <Card style={{ padding: 0 }}>
                                             <CardMedia
                                                 sx={{ height: 140 }}

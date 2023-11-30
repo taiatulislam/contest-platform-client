@@ -63,14 +63,14 @@ const Winning = () => {
                         </nav>
                     </Box>
                 </Grid>
-                <Grid item xs={12} sm={10} >
+                <Grid item xs={12} sm={10}>
                     <Typography variant="h3" textAlign='center' component="div" sx={{ mt: 5 }}>
                         My Wining Contest
                     </Typography>
                     {
-                        <Grid container spacing={5} maxWidth='lg' sx={{ mx: 'auto', my: 10 }}>
+                        <Grid container spacing={5} sx={{ my: 10 }}>
                             {contests?.map((contest) => (
-                                <Grid item key={contest?._id} xs={12} md={4}>
+                                <Grid item key={contest?._id} xs={12} sm={6} md={4}>
                                     <Card sx={{ maxWidth: 345 }}>
                                         <CardMedia
                                             sx={{ height: 140 }}

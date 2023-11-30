@@ -4,7 +4,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import { Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { AuthContext } from '../../Providers/AuthProvider';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -105,7 +105,7 @@ const Dashboard = () => {
                     <Typography variant='h3' textAlign="center">
                         Welcome to the user dashboard.
                     </Typography>
-                    <Box style={{ margin: 'auto' }}>
+                    <Container maxWidth='lg' style={{ textAlign: 'center', margin: '20px auto' }}>
                         <PieChart width={300} height={250}>
                             <Pie
                                 data={data}
@@ -124,7 +124,13 @@ const Dashboard = () => {
                                 }
                             </Pie>
                         </PieChart>
-                    </Box>
+                        <Typography variant='h3' textAlign="center" sx={{ backgroundColor: '#0766AD', color: 'white' }}>
+                            Win
+                        </Typography>
+                        <Typography variant='h3' textAlign="center" sx={{ backgroundColor: '#00A9FF', color: 'white' }}>
+                            Total Participate
+                        </Typography>
+                    </Container>
                 </Grid>
             </Grid>
         </div>

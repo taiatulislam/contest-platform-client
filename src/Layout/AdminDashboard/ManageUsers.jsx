@@ -103,7 +103,7 @@ const ManageUsers = () => {
     return (
         <div>
             <Grid container>
-                <Grid item xs={12} sm={2} style={{ position: 'fixed' }}>
+                <Grid item xs={12} sm={2}>
                     <Box sx={{ width: '100%', height: '97vh', bgcolor: 'orange' }}>
                         <nav aria-label="main mailbox folders">
                             <List >

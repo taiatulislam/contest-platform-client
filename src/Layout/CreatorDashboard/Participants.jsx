@@ -1,10 +1,11 @@
+// import Swal from 'sweetalert2'
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import { AuthContext } from '../../Providers/AuthProvider';
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
@@ -17,6 +18,28 @@ const Participants = () => {
 
     const handleMenu = (path) => {
         navigate(`${path}`)
+    }
+
+    const handleWon = () => {
+        // fetch(`https://contest-platform-server-rho.vercel.app/editContest/${contest?._id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(contest)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data)
+        //         if (data.modifiedCount > 0) {
+        //             Swal.fire({
+        //                 title: 'Success!',
+        //                 text: 'Contest Updated Successfully',
+        //                 icon: 'success',
+        //                 confirmButtonText: 'OK'
+        //             })
+        //         }
+        //     })
     }
 
     return (
@@ -66,14 +89,16 @@ const Participants = () => {
                                     <TableHead>
                                         <TableRow>
                                             <TableCell align="center">Email</TableCell>
+                                            <TableCell align="center">Set win</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {contest?.participants?.map((contest) => (
+                                        {contest?.participants?.map((email) => (
                                             <TableRow
-                                                key={contest}
+                                                key={email}
                                             >
-                                                <TableCell component="th" scope="row">{contest}</TableCell>
+                                                <TableCell component="th" scope="row">{email}</TableCell>
+                                                <TableCell align="center" onClick={handleWon}><Button variant="outlined" sx={{ textTransform: "none" }}>Win</Button></TableCell>
                                             </TableRow>
                                         )
                                         )}

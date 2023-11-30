@@ -42,7 +42,7 @@ const AllContest = () => {
                         <TabPanel key={item}>
                             <Grid container spacing={5} sx={{ my: 10 }}>
                                 {contests?.map(contest => (
-                                    <Grid item key={contest?._id} xs={12} sm={6}>
+                                    <Grid item key={contest?._id} xs={12} sm={6} md={4}>
                                         <Card >
                                             <CardMedia
                                                 image={contest?.image}
