@@ -11,16 +11,13 @@ const Winner = () => {
             </Typography>
             <Carousel style={{ height: '500px' }} >
                 <div>
-                    <img src='https://i.ibb.co/mHLv0jt/ads2-copy.jpg' alt='carousal' />
+                    <img src='https://i.ibb.co/8jfJxGb/Untitled-3.jpg' alt='carousal' />
                 </div>
                 <div>
-                    <img src='https://i.ibb.co/Zx6cPWL/ads1-copy.jpg' alt='carousal' />
+                    <img src='https://i.ibb.co/2PvGb8r/Untitled-2.jpg' alt='carousal' />
                 </div>
                 <div>
-                    <img src='https://i.ibb.co/mHLv0jt/ads2-copy.jpg' alt='carousal' />
-                </div>
-                <div>
-                    <img src='https://i.ibb.co/Zx6cPWL/ads1-copy.jpg' alt='carousal' />
+                    <img src='https://i.ibb.co/WxGSdwq/Untitled-1.jpg' alt='carousal' />
                 </div>
             </Carousel>
         </div>

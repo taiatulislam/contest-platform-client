@@ -1,17 +1,22 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const ContestDetails = () => {
 
     const contest = useLoaderData();
+    const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
 
-    const deadline = "November, 30, 2023";
+    const haveUser = contest?.participants?.filter(email => email === user.email).toString();
+
+    const deadline = contest?.deadline;
 
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(0);
+    // const [seconds, setSeconds] = useState(0);
 
     const getTime = () => {
         const time = Date.parse(deadline) - Date.now();
@@ -19,7 +24,7 @@ const ContestDetails = () => {
         setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
         setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
         setMinutes(Math.floor((time / 1000 / 60) % 60));
-        setSeconds(Math.floor((time / 1000) % 60));
+        // setSeconds(Math.floor((time / 1000) % 60));
     };
 
     useEffect(() => {
@@ -27,6 +32,10 @@ const ContestDetails = () => {
 
         return () => clearInterval(interval);
     }, []);
+
+    const handleRegister = (id) => {
+        navigate(`/payment/${id}`)
+    }
 
     return (
         <Container maxWidth="lg">
@@ -42,17 +51,26 @@ const ContestDetails = () => {
                         {contest?.name}
                     </Typography>
                     <Typography component="div" style={{ fontSize: '16px', marginBottom: '5px' }}>
-                        Participant: {contest?.participant?.length}
+                        Registration Price: {contest?.price}
+                    </Typography>
+                    <Typography component="div" style={{ fontSize: '16px', marginBottom: '5px' }}>
+                        Wining Prize: {contest?.prize}
+                    </Typography>
+                    <Typography component="div" style={{ fontSize: '16px', marginBottom: '5px' }}>
+                        Participant: {contest?.participants?.length}
                     </Typography>
                     <Typography >
-                        Time Remain: {days} days {hours} hours {minutes} min {seconds} sec
+                        Time Remain: {days} days {hours} hours {minutes} min
                     </Typography>
                     <Typography color="text.secondary">
                         {contest?.details}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Register</Button>
+                    {
+                        haveUser === user?.email ? <Button disabled variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Already Registered</Button> :
+                            <Button onClick={() => handleRegister(contest?._id)} variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Register</Button>
+                    }
                 </CardActions>
             </Card>
         </Container >

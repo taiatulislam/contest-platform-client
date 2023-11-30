@@ -51,8 +51,8 @@ const UpdateProfile = () => {
                                     </ListItemButton>
                                 </ListItem>
                                 <ListItem>
-                                    <ListItemButton>
-                                        <ListItemText onClick={() => handleMenu('/updateProfile')} primary="Update Profile" style={{ textAlign: "center" }} />
+                                    <ListItemButton onClick={() => handleMenu('/updateProfile')}>
+                                        <ListItemText primary="Update Profile" style={{ textAlign: "center" }} />
                                     </ListItemButton>
                                 </ListItem>
                             </List>

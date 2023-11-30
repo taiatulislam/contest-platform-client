@@ -23,6 +23,8 @@ import CreatorDashboard from './Layout/CreatorDashboard/CreatorDashboard.jsx';
 import AddContest from './Layout/CreatorDashboard/AddContest.jsx';
 import CreatedContest from './Layout/CreatorDashboard/CreatedContest.jsx';
 import Participants from './Layout/CreatorDashboard/Participants.jsx';
+import Payment from './Layout/Payment/Payment.jsx';
+import EditContest from './Layout/CreatorDashboard/EditContest.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,11 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <PrivateRoute><ContestDetails /></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+      },
+      {
+        path: "/payment/:id",
+        element: <Payment></Payment>,
         loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
       }
     ]
@@ -84,6 +91,11 @@ const router = createBrowserRouter([
   {
     path: "/addContest",
     element: <AddContest></AddContest>
+  },
+  {
+    path: "/editContest/:id",
+    element: <EditContest></EditContest>,
+    loader: ({ params }) => fetch(`http://localhost:5000/editContest/${params.id}`)
   },
   {
     path: "/createdContest",

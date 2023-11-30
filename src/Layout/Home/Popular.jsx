@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 const Popular = () => {
 
-    const [contest, setContest] = useState([]);
+    const [contests, setContests] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         fetch('http://localhost:5000/popular')
             .then(res => res.json())
-            .then(data => setContest(data))
+            .then(data => setContests(data))
     }, [])
 
     const handleDetails = id => {
@@ -23,31 +23,31 @@ const Popular = () => {
                 Popular Contest
             </Typography>
             <Grid container spacing={5} maxWidth='lg' sx={{ mx: 'auto', my: 10 }}>
-                {contest.map((contest) => (
-                    <Grid item key={contest._id} xs={12} md={4}>
+                {contests?.map((contest) => (
+                    <Grid item key={contest?._id} xs={12} md={4}>
                         <Card sx={{ maxWidth: 345 }}>
                             <CardMedia
                                 sx={{ height: 140 }}
-                                image={contest.image}
-                                title={contest.name}
+                                image={contest?.image}
+                                title={contest?.name}
                                 style={{ width: 'full', height: '200px' }}
                             />
                             <CardContent>
                                 <Typography variant="h5" component="div" sx={{ mb: 1 }}>
-                                    {contest.name}
+                                    {contest?.name}
                                 </Typography>
                                 <Typography component="div" style={{ fontSize: '18px', marginBottom: '5px' }}>
-                                    Category: {contest.category}
+                                    Category: {contest?.category}
                                 </Typography>
                                 <Typography component="div" style={{ fontSize: '16px', marginBottom: '5px' }}>
-                                    Participant: {contest.participant.length}
+                                    Participant: {contest?.participants.length}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    {contest.details}
+                                    {contest?.details}
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button onClick={() => handleDetails(contest._id)} variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Details</Button>
+                                <Button onClick={() => handleDetails(contest?._id)} variant="contained" fullWidth style={{ textTransform: 'none', margin: 'auto' }}>Details</Button>
                             </CardActions>
                         </Card>
                     </Grid>

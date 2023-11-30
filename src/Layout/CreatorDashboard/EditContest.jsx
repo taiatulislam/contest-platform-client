@@ -8,13 +8,17 @@ import Divider from '@mui/material/Divider';
 import { Button, Grid, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { AuthContext } from '../../Providers/AuthProvider';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 
-const AddContest = () => {
 
-    const { pages, category, user } = React.useContext(AuthContext);
+const EditContest = () => {
+
+    const { pages, category } = React.useContext(AuthContext);
     const navigate = useNavigate();
+    const contest = useLoaderData();
+
+    console.log(contest);
 
     const handleMenu = (path) => {
         navigate(`${path}`)
@@ -31,10 +35,10 @@ const AddContest = () => {
         const deadline = form.deadline.value;
         const details = form.details.value;
 
-        const contest = { name, image, price, prize, category, deadline, details, winner: "", status: 'pending', creator: user?.email, participants: [] }
+        const contest = { name, image, price, prize, category, deadline, details }
 
-        fetch(`http://localhost:5000/allContest/`, {
-            method: 'POST',
+        fetch(`http://localhost:5000/editContest/${contest?._id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
@@ -43,10 +47,10 @@ const AddContest = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.insertedId) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Contest Added Successfully',
+                        text: 'Contest Updated Successfully',
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
@@ -93,25 +97,25 @@ const AddContest = () => {
                 </Grid>
                 <Grid item md={10} sx={{ mt: 5 }}>
                     <Typography variant='h3' textAlign="center">
-                        Add Contest
+                        Edit Contest
                     </Typography>
                     <form onSubmit={handleForm}>
                         <Box sx={{ mt: 1, textAlign: 'center' }}>
-                            <TextField name='name' label="Contest Name" variant="outlined" style={{ width: '50%' }} />
+                            <TextField defaultValue={contest?.name} name='name' label="Contest Name" variant="outlined" style={{ width: '50%' }} />
                         </Box>
                         <Box sx={{ mt: 1, textAlign: 'center' }}>
-                            <TextField name='photoURL' label="Contest PhotoURL" variant="outlined" style={{ width: '50%' }} />
+                            <TextField defaultValue={contest?.image} name='photoURL' label="Contest PhotoURL" variant="outlined" style={{ width: '50%' }} />
                         </Box>
                         <Box sx={{ mt: 1, textAlign: 'center' }}>
-                            <TextField name='price' label="Joining Price" variant="outlined" style={{ width: '50%' }} />
+                            <TextField defaultValue={contest?.price} name='price' label="Joining Price" variant="outlined" style={{ width: '50%' }} />
                         </Box>
                         <Box sx={{ mt: 1, textAlign: 'center' }}>
-                            <TextField name='prize' label="Prize Money" variant="outlined" style={{ width: '50%' }} />
+                            <TextField defaultValue={contest?.prize} name='prize' label="Prize Money" variant="outlined" style={{ width: '50%' }} />
                         </Box>
                         <Box sx={{ mt: 1, textAlign: 'center' }}>
                             <InputLabel style={{ textAlign: 'center' }}>Contest Category</InputLabel>
                             <Select
-                                defaultValue=''
+                                defaultValue={contest?.category}
                                 name='category'
                                 style={{ backgroundColor: 'white' }} sx={{ width: '50%', borderRadius: '5px' }}
                             >
@@ -121,13 +125,13 @@ const AddContest = () => {
                             </Select>
                         </Box>
                         <Box sx={{ mt: 1, textAlign: 'center' }}>
-                            <TextField name='deadline' label="Example - January, 01, 2025" variant="outlined" style={{ width: '50%' }} />
+                            <TextField defaultValue={contest?.deadline} name='deadline' label="Example - January, 01, 2025" variant="outlined" style={{ width: '50%' }} />
                         </Box>
                         <Box sx={{ mt: 1, textAlign: 'center' }}>
-                            <TextField name='details' label="Description" variant="outlined" style={{ width: '50%' }} />
+                            <TextField defaultValue={contest?.details} name='details' label="Description" variant="outlined" style={{ width: '50%' }} />
                         </Box>
                         <Box sx={{ mt: 1, textAlign: 'center' }}>
-                            <Button variant="contained" type='submit' style={{ width: '50%' }}>Add Contest</Button>
+                            <Button variant="contained" type='submit' style={{ width: '50%' }}>Edit Contest</Button>
                         </Box>
 
                     </form>
@@ -137,4 +141,4 @@ const AddContest = () => {
     );
 };
 
-export default AddContest;
+export default EditContest;

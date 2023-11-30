@@ -34,10 +34,12 @@ const ManageUsers = () => {
     }
 
     const handleRole = (email) => {
+
         Swal.fire({
             title: "Select role to apply",
             showDenyButton: true,
             showCancelButton: true,
+            cancelButtonText: "user",
             confirmButtonText: "admin",
             denyButtonText: "creator"
         }).then((result) => {
@@ -64,6 +66,24 @@ const ManageUsers = () => {
                 const role = {
                     email: email,
                     role: 'creator'
+                }
+                fetch('http://localhost:5000/alluser', {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(role)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+            }
+            else if (result.isDismissed) {
+                Swal.fire("User role apply");
+                const role = {
+                    email: email,
+                    role: 'user'
                 }
                 fetch('http://localhost:5000/alluser', {
                     method: 'PATCH',

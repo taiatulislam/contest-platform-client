@@ -58,7 +58,6 @@ const Navbar = () => {
         fetch(`http://localhost:5000/userRole/${email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data.role)
                 if (data?.role === 'admin') {
                     navigate('/adminDashboard');
                 }

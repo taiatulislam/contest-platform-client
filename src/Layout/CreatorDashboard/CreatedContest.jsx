@@ -8,6 +8,7 @@ import { Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, Table
 import { AuthContext } from '../../Providers/AuthProvider';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const CreatedContest = () => {
 
@@ -20,7 +21,7 @@ const CreatedContest = () => {
             .then(res => res.json())
             .then(data => {
                 setContests(data.filter(contest =>
-                    contest.creator === user?.email))
+                    contest?.creator === user?.email))
             })
     }, [])
 
@@ -30,6 +31,28 @@ const CreatedContest = () => {
 
     const handleParticipants = (id) => {
         navigate(`/participants/${id}`)
+    }
+
+    const handleEdit = (id) => {
+        navigate(`/editContest/${id}`)
+    }
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/allContest/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Contest delete',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            })
     }
 
     return (
@@ -106,13 +129,13 @@ const CreatedContest = () => {
                                         <TableCell align="center">
                                             {
                                                 contest?.status === 'accept' ? <Button disabled color="success" variant="outlined" sx={{ textTransform: "none" }}>Edit</Button> :
-                                                    <Button color="success" variant="outlined" sx={{ textTransform: "none" }}>Edit</Button>
+                                                    <Button onClick={() => handleEdit(contest?._id)} color="success" variant="outlined" sx={{ textTransform: "none" }}>Edit</Button>
                                             }
                                         </TableCell>
                                         <TableCell align="center">
                                             {
                                                 contest?.status === 'accept' ? <Button disabled color="error" variant="outlined" sx={{ textTransform: "none" }}>Delete</Button> :
-                                                    <Button color="error" variant="outlined" sx={{ textTransform: "none" }}>Delete</Button>
+                                                    <Button onClick={() => handleDelete(contest?._id)} color="error" variant="outlined" sx={{ textTransform: "none" }}>Delete</Button>
                                             }
                                         </TableCell>
                                     </TableRow>
